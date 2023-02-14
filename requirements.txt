@@ -1,0 +1,4 @@
+neptune-client
+torch
+torchvision
+torchaudio
