@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
         "autoencoder",
-        "logits"
+        "hyperparameters",
+        "logits",
+        "ndarray",
+        "timegan"
     ]
 }
