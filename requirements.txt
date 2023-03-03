@@ -1,7 +1,6 @@
-neptune-client
-torch
-torchvision
-torchaudio
-numpy
 pandas
+neptune-client
+numpy
 matplotlib
+scipy
+tk
