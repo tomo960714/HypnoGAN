@@ -1,14 +1,24 @@
-#imports
-from tkinter import Tk
-from tkinter.filedialog import askopenfilenames
+""" 
+Preprocess methods used on the datasets
 
-#local imports
-from utils import load_mat_as_df
+Path: preprocess.py
 
-def preprocess():
+(0) MinMaxScaler: Min Max normalizer
 
-    Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-    filename = askopenfilenames() # show an "Open" dialog box and return the path to the selected file
-    print(filename)
+"""
 
+#Necessary Packages:
+import numpy as np
+
+def MinMaxScaler(data):
+    """ 
+    Min Max normalizer
+
+    Args:
+        data (pandas.DataFrame): The data to be normalized.
+
+    Returns:
+        data_normalized (pandas.DataFrame): The normalized data.
+    """
+    #Initialize the output
     
