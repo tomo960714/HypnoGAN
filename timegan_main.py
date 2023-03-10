@@ -11,11 +11,15 @@ from models.timegan import TimeGAN
 
 
 def main(args):
+    # Main function for HypnoGAN
+    #
+    # get arguments 
+    return args
 
 
 if __name__ == '__main__':
     # Inputs for the main function
-    parser = argparse.ArgumentParser()
+    #parser = argparse.ArgumentParser()
     ## example
     """parser.add_argument('--data', 
                         type=str,
@@ -23,7 +27,7 @@ if __name__ == '__main__':
                         choices = []
                         help='data path')"""
     
-    args = parser.parse_args()
+    #args = parser.parse_args()
 
     #call main function
-    returns = main(args)
+    main()
