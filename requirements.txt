@@ -8,3 +8,4 @@ argparse
 warnings
 torch
 tqdm
+mne
