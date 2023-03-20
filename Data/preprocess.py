@@ -90,7 +90,12 @@ def preprocess_data(
     """
     Normalize data to [0,1] using MinMaxScaler algorithm
     """
-    loaded_data['data']=MinMaxNormalizer(loaded_data['data'])
+
+    norm_enable = False
+
+    if norm_enable == True:
+        loaded_data['data']=MinMaxNormalizer(loaded_data['data'])
+    
 
     #######################################
     # 2.5. Padding

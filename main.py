@@ -123,6 +123,19 @@ def main(args):
 
     return None
 
+if __name__ == "__main__":
+    args = (
+        device = 'cuda'
+        exp = 'test'
+        is_train = True
+        seed = 0
+        data_limit = 10
+        train_rate = 0.6
+        max_seq_len = 100
+        
+    )
+    main(args)
+"""
 def str2bool(v):
     if isinstance(v, bool):
        return v
@@ -217,3 +230,4 @@ if __name__ == "__main__":
     # Call main function
     main(args)
 
+"""
