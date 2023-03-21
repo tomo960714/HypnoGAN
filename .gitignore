@@ -1,6 +1,8 @@
 # Personal .gitignore template for Python projects
 
 Data/SHHS
+Data/CHAT
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
