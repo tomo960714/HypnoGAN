@@ -1,0 +1,11 @@
+pandas
+neptune-client
+numpy
+matplotlib
+scipy
+tk
+argparse
+warnings
+torch
+tqdm
+mne
