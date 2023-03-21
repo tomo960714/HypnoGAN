@@ -16,6 +16,7 @@ def load_data(data_limit=None):
     Load and preprocess real life datasets.
     
     Args:
+        data_limit (int): The number of data points to load. If None, all data points are loaded. Default: None. Used for testing.
 
 
     Returns:
@@ -39,6 +40,11 @@ def load_data(data_limit=None):
         elif filename.endswith('.csv'):
             ## TODO: add csv support
             #df = 
+
+            """ CSV format:
+            ID|refresh_rate|value_array|length|additional_info
+
+            """
             pass
 
         elif filename.endswith('.xml'):
@@ -46,7 +52,7 @@ def load_data(data_limit=None):
             #df =
             pass
         else:
-            print("Unsopported file format, skipping file:",filename,".")
+            print("Unsupported file format, skipping file:",filename,".")
             pass
     
         dataset.append(df)

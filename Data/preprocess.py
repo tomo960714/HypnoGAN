@@ -75,15 +75,7 @@ def preprocess_data(
     """
     loaded_data['length'] = loaded_data['data'].apply(lambda x: len(x))
 
-    #######################################
-    # 2.3. Resample data
-    #######################################
-    """
-    Resample data to given length
-    """
-    # TODO: data resample
-    # Questions: resample to given length? resample to given time? Do we need it or just padding?
-
+    
     #######################################
     # 2.4. Normalize data
     #######################################

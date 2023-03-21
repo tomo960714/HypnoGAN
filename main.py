@@ -12,7 +12,6 @@ import time
 import numpy as np
 import pandas as pd
 import torch
-import joblib
 from sklearn.model_selection import train_test_split
 # TODO: Implement Neptune logger
 
@@ -20,6 +19,8 @@ from sklearn.model_selection import train_test_split
 from Data.preprocess import preprocess_data
 from model.timegan import TimeGAN
 from model.utils import timegan_trainer, timegan_generator
+
+# TODO: START TRAINING!!!
 
 def main(args):
     ######################################
@@ -84,6 +85,8 @@ def main(args):
     args.Z_dim = X.shape[-1]
     args.max_seq_len = loaded_data_info.max_length
      # Train-Test Split data and time
+     # TODO: Same people should be in the same pool at train test split
+     # Make the split on the subject ID's, so also have to att ID to the loaded data
     train_data, test_data, train_time, test_time = train_test_split(
         X, T, test_size=args.train_rate, random_state=args.seed
     )
