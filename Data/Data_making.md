@@ -13,11 +13,11 @@ luna --build Data_folder/../edfs Data_folder/.../annotations-events-nsrr/ -ext=-
 ```
 4. Run STAGES command using the sample list to get sleeping stage from all file
 ```
-luna s.lst -t o1 -s STAGES
+luna s.lst -t o1 -s STAGE
 ```
 &emsp; Run the following code to only 
 ```
-luna s.lst 1 5 -t o1 -s STAGES
+luna s.lst 1 5 -t o1 -s STAGE
 ```
 
 5. Process the folders containing the resulted files with the python script. (In progress)
