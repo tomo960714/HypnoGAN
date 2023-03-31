@@ -127,15 +127,108 @@ def main(args):
     return None
 
 if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+
+    # Experiment Arguments
+    parser.add_argument(
+        "--device",
+        choices=["cuda", "cpu"],
+        default="cuda",
+        type=str,
+        help="Device to use for training",
+    )
+    parser.add_argument(
+        "--seed",
+        default=0,
+        type=int,
+        help="Random seed for reproducibility",
+    )
+    parser.add_argument(
+        "--exp",
+        default="test",
+        type=str,
+        help="Experiment name",
+    )
+    
+    # Data Arguments
+    parser.add_argument(
+        "--data_limit",
+        default=5,
+        type=int,
+        help="Number of data points to use",
+    )
+    parser.add_argument(
+        "--train_rate",
+        default=0.6,
+        type=float,
+        help="Train test split rate",
+    )
+    parser.add_argument(
+        "--max_seq_len",
+        default=1000,
+        type=int,
+        help="Maximum sequence length",
+    )
+
+    
+    # Model Arguments
+    parser.add_argument(
+        "--emb_epochs",
+        default=600,
+        type=int,
+        help="Number of epochs to train embedding model",
+    )
+    parser.add_argument(
+        "--gan_epochs",
+        default=600,
+        type=int,
+        help="Number of epochs to train GAN model",
+    )
+    parser.add_argument(
+        "--sup_epochs",
+        default=600,
+        type=int,
+        help="Number of epochs to train supervised model",
+    )
+    parser.add_argument(
+        "--batch_size",
+        default=64,
+        type=int,
+        help="Batch size for training",
+    )
+    parser.add_argument(
+        "--hidden_dim",
+        default=20,
+        type=int,
+        help="Hidden dimension of RNN",
+    )
+    parser.add_argument(
+        "--num_layers",
+        default=3,
+        type=int,
+        help="Number of layers in RNN",
+    )
+    parser.add_argument(
+        "--dis_thresh",
+        default=0.15,
+        type=float,
+        help="Discriminator threshold",
+
+
+
+
+
+    """
     args = (
-        device = 'cuda'
-        exp = 'test'
-        is_train = True
-        seed = 0
-        data_limit = 10
-        train_rate = 0.6
-        max_seq_len = 100
-        
+        device: 'cuda',
+        exp : 'test',
+        is_train : True,
+        seed  0,
+        data_limit == 5,
+        train_rate == 0.6,
+        max_seq_len == 100,
+    """
     )
     main(args)
 """

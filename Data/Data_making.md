@@ -20,4 +20,8 @@ luna s.lst -t o1 -s STAGE
 luna s.lst 1 5 -t o1 -s STAGE
 ```
 
-5. Process the folders containing the resulted files with the python script. (In progress)
+5. Process the folders containing the resulted files with the python script. 
+
+Run create_dataset.ipynb to generate dataset.csv from the generated Stage files residing in o1 folder. (Select o1 folder in the popup window).
+
+6. The generated dataset can be used in the data loading process.

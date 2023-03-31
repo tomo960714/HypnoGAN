@@ -95,8 +95,8 @@ def preprocess_data(
     """
     Padding data to given length
     """
-    # TODO: data padding
-    # Questions: Current padding value is 0, is it ok? Do we need it or just resample?
+   
+    # Question: Current padding value is 0, is it ok? Do we need it or just resample?
     data_info = {
         'length' : len(loaded_data),
         'max_length' : max(loaded_data['length']),

@@ -11,12 +11,13 @@ import numpy as np
 #local imports
 
 
-def load_data(data_limit=None):
+def load_data(data_limit=None,save_dataset=None):
     """
     Load and preprocess real life datasets.
     
     Args:
         data_limit (int): The number of data points to load. If None, all data points are loaded. Default: None. Used for testing.
+        save_dataset (bool): If 'Full', the dataset is saved to a csv file. If it's 'limited', than save the limited dataset if data_limit is not None. Default: None.
 
 
     Returns:
@@ -24,7 +25,7 @@ def load_data(data_limit=None):
     
     """
 
-    dataset = pd.DataFrame()
+    main_dataset = pd.DataFrame()
 
     
     Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
@@ -38,11 +39,13 @@ def load_data(data_limit=None):
             print(df)
         
         elif filename.endswith('.csv'):
-            ## TODO: add csv support
-            #df = 
+
+            #use create_dataset_csv.py to create a csv file
+            if filename.find('dataset') != -1:
+                df = pd.read_csv(filename,sep=';',index_col=0)
 
             """ CSV format:
-            ID|refresh_rate|value_array|length|additional_info
+            ID|time|Sleeping stage|length|additional_info
 
             """
             pass
@@ -55,13 +58,18 @@ def load_data(data_limit=None):
             print("Unsupported file format, skipping file:",filename,".")
             pass
     
-        dataset.append(df)
+        main_dataset.append(df)
 
     #Cut df to data_limit size for testing purposes
     if data_limit is not None:
-        dataset = dataset[:data_limit]
-    
-    return dataset #dataset as df
+        main_dataset = main_dataset[:data_limit]
+        if save_dataset == 'limited':
+            #save dataset to a csv file
+            main_dataset.to_csv('limited_dataset.csv',sep=';')
+    if save_dataset == 'full':
+        #save dataset to a csv file
+        main_dataset.to_csv('full_dataset.csv',sep=';')
+    return main_dataset #dataset as df
 
 def load_mat_as_df(mat_file_path, var_name):
     mat = sio.loadmat(mat_file_path,simplify_cells=True)
