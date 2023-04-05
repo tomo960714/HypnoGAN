@@ -21,13 +21,13 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 # personal packages:
-from utils import *
+#from utils import *
 from Data import data_loading as ld
 
-def preprocess_data(
-        padding_value: int = -1.0,
-        data_limit: int = None,
-):
+def preprocess_data(args):
+    """
+    padding_value: int = -1.0,
+    data_limit: int = None"""
     # Load and preprocess data
     # 
     # 1. Load data from files (csv,mat,xml)
@@ -39,6 +39,7 @@ def preprocess_data(
     # 2.5. Padding 
     #  
     # Args:
+    #     data_limit (int): The number of lines to load from the data file
     #     padding_value (int): The value used for padding
     #     
     # 
@@ -49,7 +50,7 @@ def preprocess_data(
     # 1. Load data from files (csv,mat,xml)
     #######################################
 
-    loaded_data = ld.load_data(data_limit=data_limit)
+    loaded_data = ld.load_data(data_limit=args.data_limit)
     """
     loaded data =       time_data   , data  , length
     (pandas.DataFrame), (np.array)  ,(list) ,(int)
@@ -83,9 +84,9 @@ def preprocess_data(
     Normalize data to [0,1] using MinMaxScaler algorithm
     """
 
-    norm_enable = False
+    
 
-    if norm_enable == True:
+    if args.norm_enable == True:
         loaded_data['data']=MinMaxNormalizer(loaded_data['data'])
     
 
@@ -100,16 +101,16 @@ def preprocess_data(
     data_info = {
         'length' : len(loaded_data),
         'max_length' : max(loaded_data['length']),
-        'paddding_value' : padding_value,
+        'paddding_value' : args.padding_value,
 
     }
     
-    loaded_data['data'] = loaded_data['data'].apply(lambda x: np.transpose(x)
+    loaded_data['data'] = loaded_data['data'].apply(lambda x: np.transpose(x))
     prep_data = pd.DataFrame(columns=['time','data'])
     for i in tqdm(range(data_info.length)):
         #create empty array with padding value
         tmp_array = np.empty([data_info.max_length,1])
-        tmp_array.fill(padding_value)
+        tmp_array.fill(args.padding_value)
         #fill array with data
         tmp_array[:loaded_data['data'][i].shape[0],:loaded_data['data'][i].shape[1]] = loaded_data['data'][i]
         #append to prep_data

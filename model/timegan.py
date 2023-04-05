@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # TimeGan implementation
-# Path: timeGAN_ex.ipynb
+# Path: timeGAN_ex.py
 # Imports
 import torch
 import torch.nn as nn

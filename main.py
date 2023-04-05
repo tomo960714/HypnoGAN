@@ -150,13 +150,26 @@ if __name__ == "__main__":
         type=str,
         help="Experiment name",
     )
-    
+    parser.add_argument(
+        "--norm_enable",
+        default=False,
+        type=bool,
+        help="Enable normalization",
+    )
+    parser.add_argument(
+        "--save_dataset",
+        choices=["Full","Limited","None"],
+        default="Full",
+        type=str,
+        help="Save loaded datasets as csv",
+    )
+
     # Data Arguments
     parser.add_argument(
         "--data_limit",
-        default=5,
+        default=None,
         type=int,
-        help="Number of data points to use",
+        help="Number of data points to use (None or int)",
     )
     parser.add_argument(
         "--train_rate",
@@ -214,22 +227,22 @@ if __name__ == "__main__":
         default=0.15,
         type=float,
         help="Discriminator threshold",
-
-
-
-
-
-    """
-    args = (
-        device: 'cuda',
-        exp : 'test',
-        is_train : True,
-        seed  0,
-        data_limit == 5,
-        train_rate == 0.6,
-        max_seq_len == 100,
-    """
     )
+    parser.add_argument(
+        "--padding_value",
+        default=0,
+        type=int,
+        help="Data padding value",
+    )
+    parser.add_argument(
+        '--learning_rate',
+        default=1e-3,
+        type=float)
+
+
+
+
+    args = parser.parse_args()
     main(args)
 """
 def str2bool(v):

@@ -11,13 +11,15 @@ class TimeGAN_Dataset(torch.utils.data.dataset):
         - x (torch.FloatTensor): the real value features of the data
         - t (torch.LongTensor): the temporal feature of the data
     """
-    def __init__(self,data,time=None,padding_values=None):
+    def __init__(self,args,data):
         #sanity check data and time
-        if len(data) != len(time):
-            raise ValueError( f"len(data) `{len(data)}` != len(time) {len(time)}")
+        value = data['Sleeping stage'].values
+        time = data['time'].values
+        if len(value) != len(time):
+            raise ValueError( f"len(value) `{len(value)}` != len(time) {len(time)}")
         if isinstance(time,type(None)):
             time = [len(x) for x in data]
-        self.X = torch.FloatTensor(data)
+        self.X = torch.FloatTensor(value)
         self.T = torch.LongTensor(time)
 
     def __len__(self):

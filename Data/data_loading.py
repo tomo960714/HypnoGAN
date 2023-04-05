@@ -11,8 +11,9 @@ import numpy as np
 #local imports
 
 
-def load_data(data_limit=None,save_dataset=None):
+def load_data(args):
     """
+    data_limit=None,save_dataset=None
     Load and preprocess real life datasets.
     
     Args:
@@ -61,14 +62,34 @@ def load_data(data_limit=None,save_dataset=None):
         main_dataset.append(df)
 
     #Cut df to data_limit size for testing purposes
-    if data_limit is not None:
-        main_dataset = main_dataset[:data_limit]
-        if save_dataset == 'limited':
+    if args.data_limit is not None:
+        if args.save_dataset == 'Full':
+            #save dataset to a csv file
+            main_dataset.to_csv('Full_dataset.csv',sep=';')
+        
+        elif args.save_dataset == 'Limited':
+            main_dataset = main_dataset[:args.data_limit]
             #save dataset to a csv file
             main_dataset.to_csv('limited_dataset.csv',sep=';')
-    if save_dataset == 'full':
-        #save dataset to a csv file
-        main_dataset.to_csv('full_dataset.csv',sep=';')
+        elif args.save_dataset == 'None':
+            main_dataset = main_dataset[:args.data_limit]
+            pass
+        else:
+            raise ValueError("Invalid save_dataset value, valid values are 'Full','Limited','None'.")
+
+    elif args.data_limit is None:
+        if args.save_dataset == 'Full':
+            #save dataset to a csv file
+            main_dataset.to_csv('full_dataset.csv',sep=';')
+        elif args.save_dataset == 'Limited':
+            print("Warning: data_limit is None, dataset is not limited, saving full dataset.")
+            main_dataset.to_csv('full_dataset.csv',sep=';')
+        elif args.save_dataset == 'None':
+            pass
+        else:
+            raise ValueError("Invalid save_dataset value, valid values are 'Full','Limited','None'.")
+
+    
     return main_dataset #dataset as df
 
 def load_mat_as_df(mat_file_path, var_name):

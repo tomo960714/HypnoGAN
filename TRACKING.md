@@ -16,20 +16,21 @@ not add:
     - model_path
     - feature_dim
     - Z_dim
-    - max_seq_len
+    -- max_seq_len
 
 pre add:
-    - exp
-    - seed
-    - device
-    - data_limit
-    - train_rate
+    -- exp
+    -- seed
+    -- device
+    -- data_limit
+    -- train_rate
     - is_train
-    - emb_epochs
-    - sup_epochs
-    - batch_size
-    - hidden_dim
-    - num_layers
+    -- emb_epochs
+    -- sup_epochs
+    -- gan_epochs
+    -- batch_size
+    -- hidden_dim
+    -- num_layers
     - padding_value
 
 
