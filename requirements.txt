@@ -1,5 +1,5 @@
 pandas
-neptune-client
+neptune
 numpy
 matplotlib
 scipy
