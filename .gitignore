@@ -3,7 +3,10 @@
 Data/SHHS
 Data/CHAT
 Data/ABC
-
+.vscode
+.neptune
+unrelated
+requirements2.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
