@@ -7,6 +7,7 @@ Data/ABC
 .neptune
 unrelated
 requirements2.txt
+*.pickle
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
